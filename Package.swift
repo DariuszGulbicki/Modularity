@@ -10,8 +10,6 @@ let package = Package(
             targets: ["Modularity"]),
     ],
     dependencies: [
-        // SwifterSwift
-        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "5.0.0"),
     ],
     targets: [
         .target(
