@@ -140,7 +140,7 @@ You can load dynamic modules both directly from code and from files.\
 \
 Dynamic modules can be loaded without structure, but you can also use 'Schemas' to avoid errors when working with large amounts of modules\
 Modules can also be loaded as 'relative' modules, i.e. from a bundle.\
-Each module type has its own schema, loader and manager to make working with them as easy and intuitive as possible.\
+Each module type has its own schema, loader and manager to make working with them as easy and intuitive as possible.
 
 #### Javascript
 
