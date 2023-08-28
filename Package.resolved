@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
-      "identity" : "swifterswift",
+      "identity" : "jxkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SwifterSwift/SwifterSwift.git",
+      "location" : "https://github.com/jectivex/JXKit.git",
       "state" : {
-        "revision" : "933f27d8e7fa0bf8200a5d6235e0de383b801126",
-        "version" : "5.3.0"
+        "revision" : "1d2c56ada375aa14c9ec2eb299d27690949fb5a4",
+        "version" : "3.5.1"
+      }
+    },
+    {
+      "identity" : "pythonkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pvieito/PythonKit.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "060e1c8b0d14e4d241b3623fdbe83d0e3c81a993"
       }
     }
   ],

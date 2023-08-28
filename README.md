@@ -8,6 +8,16 @@
 * Use module manager to manage large amounts of modules.
 * Quick to use.
 * Easy syntax.
+* Supports grouping modules.
+* Supports JavaScript modules.
+* Supports Python modules.
+* Cross platform.
+
+## Module type support
+
+- [x] Swift
+- [x] Javascript
+- [x] Python
 
 ## Installation
 
@@ -121,6 +131,79 @@ let filtered = manager[{ $0 is Notifier }]
 // Run disable function on filtered modules
 // We will run disable function only on HelloWorld
 manager[{ $0 is HelloWorld }, { $0.disable() }]
+```
+
+### Dynamic modules (Javascript, Python)
+
+Modularity supports dynamic modules.\
+You can load dynamic modules both directly from code and from files.\
+\
+Dynamic modules can be loaded without structure, but you can also use 'Schemas' to avoid errors when working with large amounts of modules\
+Modules can also be loaded as 'relative' modules, i.e. from a bundle.\
+Each module type has its own schema, loader and manager to make working with them as easy and intuitive as possible.\
+
+#### Javascript
+
+Start by importing the `JavascriptModules` module.
+
+```swift
+import JavascriptModules
+```
+
+Code below shows an example on how to load and work with javascript modules.
+
+```swift
+// Create module manager
+let modules = JSModuleManager[
+    /*
+        Schema:
+            name: string
+            version: number
+            hello: function
+    */
+    JSModuleSchema()
+        .expectValue("name", .string)
+        .expectValue("version", .number)
+        .expectFunction("hello")
+]
+// Load all modules in the Resources/modules directory
+modules.loadRelativeDirectory("modules", Bundle.module)
+// Print all loaded modules
+modules[{ print("Loaded \($0.name) (version: \($0.version))") }]
+// Execute hello function on all modules
+modules[{ $0("hello") }]
+```
+
+#### Python
+
+Start by importing the `PythonModules` module.
+
+```swift
+import PythonModules
+```
+
+Code below shows an example on how to load and work with python modules.
+
+```swift
+// Create module manager
+let modules = PyModuleManager[
+    /*
+        Schema:
+            name: string
+            version: float
+            hello: function
+    */
+    PyModuleSchema()
+        .expectValue("name", .string)
+        .expectValue("version", .float)
+        .expectFunction("hello")
+]
+// Load all modules in the Resources/modules directory
+modules.loadRelativeDirectory("modules", Bundle.module)
+// Print all loaded modules
+modules[{ print("Loaded \($0.name) (version: \($0.version))") }]
+// Execute hello function on all modules
+modules[{ $0.hello() }]
 ```
 
 ## License
