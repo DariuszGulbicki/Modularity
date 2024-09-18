@@ -20,7 +20,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/jectivex/JXKit.git", .upToNextMajor(from: "3.0.0")),
-        .package(url: "https://github.com/pvieito/PythonKit.git", branch: "master"),
+        .package(url: "https://github.com/pvieito/PythonKit.git", from: "0.5.0"),
     ],
     targets: [
         .target(
